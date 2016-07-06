@@ -40,19 +40,21 @@ namespace AP_Sample
 
     public class Car : Automobile, INavigation
     {
-        public enum DriveTrainType { MANUAL = 0, AUTOMATIC, TRIPTRONIC }
+        public enum TransType { MANUAL = 0, AUTOMATIC, TRIPTRONIC }
 
         //private IgnitionType _ignitionType;
         private string _navStartAddr;
         private string _navEndAddr;
 
+        public string VIN { get; set; }
         public int EngineCylinders { get; set; }
-        public DriveTrainType DriveTrain { get; set; }
+        public TransType Transmission { get; set; }
 
-        public Car(string make, string model, int cylinders, DriveTrainType driveTrain) : base(make, model)
+        public Car(string vin, string make, string model, int cylinders, TransType trans) : base(make, model)
         {
+            VIN = vin;
             EngineCylinders = cylinders;
-            DriveTrain = driveTrain;
+            Transmission = trans;
         }
 
         public override void StartEngine( IgnitionType ignitionType)
@@ -86,12 +88,12 @@ namespace AP_Sample
     {
         static void Main(string[] args)
         {
-            Car commuter = new Car("chevy", "sonic", 4, Car.DriveTrainType.MANUAL);
+            Car commuter = new Car("2jzXXXYYY", "chevy", "sonic", 4, Car.TransType.MANUAL);
 
             Console.WriteLine("Make: " + commuter.Make);
             Console.WriteLine("Model: " + commuter.Model);
             Console.WriteLine("Cylinders: " + commuter.EngineCylinders);
-            Console.WriteLine("Transmission: " + commuter.DriveTrain);
+            Console.WriteLine("Transmission: " + commuter.Transmission);
         }
     }
 }

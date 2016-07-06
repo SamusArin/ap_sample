@@ -1,6 +1,6 @@
 This code sample is for adding vehicles to a database, web-service style.
 
-Assuming there are IIS 10 and SQL Server Express services available, and of course VS2015,
+Assuming there are sufficiently updated versions of IIS and SQL Server available, and of course Visual Studio,
 the only two extra pieces required to make it work are the DB creation snippet and url input string.
 The associated files for these are:
   - create_table.sql
